@@ -55,10 +55,10 @@ let projectData = {
     },
     "gratitudeTracker": {
         "imgs": [
-            "assets/gratitudeTracker1.jpg",
-            "assets/gratitudeTracker2.jpg",
-            "assets/gratitudeTracker3.jpg",
-            "assets/gratitudeTracker4.jpg",
+            "assets/gratitudeTracker1.JPG",
+            "assets/gratitudeTracker2.JPG",
+            "assets/gratitudeTracker3.JPG",
+            "assets/gratitudeTracker4.JPG",
         ],
         "link": "http://github.com/emilyclam/gratitudeTracker",
         "title": "Gratitude Tracker",
