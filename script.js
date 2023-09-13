@@ -51,7 +51,7 @@ let projectData = {
         "link": "http://github.com/emilyclam/Gradient-Game",
         "title": "Gradient Game",
         "langs": ["python"],
-        "desc": "Fun game were you unscramble the tiles."
+        "desc": "Fun game where you unscramble the tiles."
     },
     "gratitudeTracker": {
         "imgs": [

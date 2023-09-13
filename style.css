@@ -29,12 +29,12 @@ h1, h2, h3 {
 
 h1 {
     letter-spacing: 1ch;
-    font-size: 75px;
+    font-size: 4.5rem;
 }
 
 h2 {
     letter-spacing: 0.3ch;
-    font-size: 25px;
+    font-size: 1.5rem;
     margin-bottom: 30px;
     padding: 10px;
     text-align: center;
@@ -43,7 +43,7 @@ h2 {
 }
 
 p {
-    font-size: 12px;
+    font-size: 0.8rem;
     line-height: 0.7rem;
     letter-spacing: 0.08rem;
 }
@@ -74,6 +74,7 @@ button {
     display: flex;
     justify-content: space-between;
     column-gap: 40px;
+    flex-wrap: wrap;
 }
 
 /**
@@ -95,10 +96,10 @@ HOME
     z-index: 1;
 }
 .small-header h1 {
-    font-size: 25px;
+    font-size: 1.6rem;
 }
 .small-header nav {
-    font-size: 10px;
+    /*font-size: 10px;*/
 }
 .title {
     width: 50%;
@@ -107,7 +108,7 @@ HOME
 nav {
     justify-self: center;
     display: flex;
-    font-size: 15px;
+    font-size: 0.8rem;
 }
 li {
     padding: 0 5px;
@@ -129,6 +130,8 @@ PROJECTS
 .proj-title {
     margin-top: 20px;
 }
+
+/*goto-github isn't applied to anything?*/
 .goto-github {
     font-size: 15px;
     font-weight: normal;
@@ -159,7 +162,7 @@ PROJECTS
     text-transform: uppercase;
     margin: 30px;
     padding: 15px 25px;
-    font-size: 10px;
+    font-size: 0.6rem;
     letter-spacing: 1.5px;
 }
 
@@ -183,6 +186,8 @@ PROJECTS / GALLERY
     max-width: 280px;
     border: gray dashed 1px;
     margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
 }
 .open {
     position: relative;
@@ -199,9 +204,14 @@ PROJECTS / GALLERY
     top: 0px;
     left: 0px;
 }
+
+.caption {
+    align-self: flex-end;
+    width: 100%;
+}
 .caption-title {
     padding: 10px 5px 5px 5px;
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 .frame {
@@ -273,6 +283,8 @@ ABOUT / CONTACT
 
 #about {
     width: 60%;
+    min-width: 300px;
+
 }
 
 #contact {
