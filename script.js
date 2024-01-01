@@ -14,6 +14,7 @@ function scrollFunction() {
 }
 
 let frame = document.getElementsByClassName('frame')[0];
+let project = document.getElementsByClassName('project')[0];
 let currentProjKey = ""
 let projectData = {
     "scheduleMaker": {
@@ -130,3 +131,23 @@ for (let i = 0; i < galleryItems.length; i++) {
     }
 
 }
+
+
+// if the frame is open, you could also close it by clicking anywhere outside the frame
+window.addEventListener('mousedown', function(e){   
+    if (frame.style.display == "flex") {
+        if (!project.contains(e.target)){
+          console.log("clicked outside of frame; close");
+          closeFrame();
+        }
+    }
+});
+/*
+function checkCloseFrame() {
+    if (frame.style.display == "flex") {
+        if (!project.contains(mouse)){
+          console.log("clicked outside of frame; close");
+          closeFrame();
+        }
+    }
+}*/
