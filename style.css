@@ -38,8 +38,8 @@ h2 {
     margin-bottom: 30px;
     padding: 10px 30px;
     text-align: center;
-    background-color: gray;
-    color: lightgray;
+    color: gray;
+    border: 1px gray solid;
 }
 
 p {
@@ -70,11 +70,6 @@ button {
     cursor: pointer;
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 40px;
-}
 
 /**
 HOME
@@ -103,7 +98,6 @@ HOME
     
 }
 nav {
-    justify-self: center;
     display: flex;
     font-size: 0.8rem;
 }
@@ -277,6 +271,12 @@ PROJECTS / GALLERY
 /**
 ABOUT / CONTACT
 **/
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 40px;
+}
 
 #contact {
     min-width: 300px;
