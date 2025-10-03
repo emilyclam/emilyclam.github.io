@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
         <title>EMILY LAM</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
         <link rel="stylesheet" href="style.css">
         
     </head>
@@ -21,53 +23,41 @@
                     
             </nav>
         </header>
+        <!-- <section id="experience">
+            <h2>Professional Experience</h2>
+            <iframe class="pdf" src="assets/Internship_2024.pdf" width="700" height="500">
+            </iframe>
+            <iframe class="pdf" src="assets/Batchloader.pdf" width="700" height="500">
+            </iframe>
+        </section> -->
         <section id="projects">
             <h2>Projects</h2>
             <div class="gallery">
-                <div class="gallery-item scheduleMaker">
-                    <img src="assets/scheduleMaker1.JPG" class="thumbnail" onclick="openFrame('scheduleMaker')">
+                <div class="gallery-item leetMon">
+                    <img src="assets/leetmon1.gif" class="thumbnail">
                     <div class="caption">
-                        <h3 class="caption-title">Schedule Maker</h3>
+                        <h3 class="caption-title">LeetMon</h3>
                     </div>
                 </div>
-                <div class="gallery-item blockyJump">
-                    <img src="assets/blockyJump1.JPG" class="thumbnail">
+                 <div class="gallery-item recipeBook">
+                    <img src="assets/recipebook1.png" class="thumbnail">
                     <div class="caption">
-                        <h3 class="caption-title">Blocky Jump</h3>
+                        <h3 class="caption-title">Recipe Book</h3>
                     </div>
                 </div>
-                <div class="gallery-item gradientGame">
-                    <img src="assets/gradientGame1.png" class="thumbnail">
+                <div class="gallery-item pogoBot">
+                    <img src="assets/bot-example.png" class="thumbnail">
                     <div class="caption">
-                        <h3 class="caption-title">Gradient Game</h3>
-                    </div>
-                </div>
-                <div class="gallery-item gratitudeTracker">
-                    <img src="assets/gratitudeTracker1.JPG" class="thumbnail">
-                    <div class="caption">
-                        <h3 class="caption-title">Graditude Tracker</h3>
-                    </div>
-                </div>
-                <div class="gallery-item minesweeper">
-                    <img src="assets/minesweeper1.png" class="thumbnail">
-                    <div class="caption">
-                        <h3 class="caption-title">Minesweeper</h3>
-                    </div>
-                </div>
-                <div class="gallery-item filler">
-                    <img src="assets/filler1.png" class="thumbnail">
-                    <div class="caption">
-                        <h3 class="caption-title">Filler Game</h3>
+                        <h3 class="caption-title">PoGo Bot</h3>
                     </div>
                 </div>
             </div>
-            <a href="https://github.com/emilyclam?tab=repositories"><button class="open-proj-gallery">View More Projects on GitHub!</button></a>
         </section>
         <div class="frame">
             <div class="project">
                 <a class="exit" onclick="closeFrame()">X</a>
                 <div class="frame-img">
-                    <img class="thumbnail" src="assets/scheduleMaker1.JPG">
+                    <img src="assets/scheduleMaker1.JPG">
                     <a class="prev" onclick="nextImg(-1)">&#10094;</a>
                     <a class="next" onclick="nextImg(1)">&#10095;</a>
                 </div>
@@ -83,33 +73,11 @@
             </div>
         </div>
         
-
-        <!--<section id="highlights">
-            <h2>Highlights</h2>
-            <div class="project">
-                <img class="thumbnail" src="assets/scheduleMaker1.JPG">
-                <h3 class="proj-title">Schedule Maker <a href="#">🞂</a></h3>
-                <div class="box">
-                    <ul class="languages">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <LI>JS</LI>
-                    </ul>
-                    <div class="description">
-                        <h4>Description</h4>
-                        <p>
-                            A chrome extension that helps you schedule your time. Features a todo list, a timer, and numbers.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <a href="projects.html"><button class="open-proj-gallery">View More Projects</button></a>
-        </section>-->
         <section class="row">
             <div id="about">
                 <h2>About</h2>
                 <p>
-                    Junior at University of California: Santa Cruz,
+                    Senior at University of California: Santa Cruz,
                     majoring in computer science.
                     From the Bay Area.
                     Interested in using programming to solve real-world problems and inconveniences. 

@@ -33,13 +33,14 @@ h1 {
 }
 
 h2 {
-    letter-spacing: 0.3ch;
+    letter-spacing: 0.1ch;
     font-size: 1.5rem;
     margin-bottom: 30px;
     padding: 10px 30px;
     text-align: center;
     color: gray;
     border: 1px gray solid;
+    background-color: #ccc;
 }
 
 p {
@@ -80,7 +81,8 @@ HOME
     top: 0;
     padding: 0 40px;
     background-color: inherit;
-    transition: 0.3s all ease-in-out;    
+    transition: 0.3s all ease-in-out;
+    margin-bottom: 50px;
 }
 .small-header {
     padding: 20px 40px;
@@ -116,7 +118,7 @@ PROJECTS
     text-align: left;
 }
 .thumbnail {
-    width: 100%;
+    width: 90%;
 }
 .proj-title {
     margin-top: 20px;
@@ -174,35 +176,36 @@ PROJECTS / GALLERY
     justify-content: center;
 }
 .gallery-item {
-    max-width: 280px;
-    border: gray dashed 1px;
-    margin: 10px;
+    max-width: 1000px;
+    margin-bottom: 70px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    border: gray dashed 1px;
+    padding: 15px;
 }
 .open {
     position: relative;
     top: 0;
 }
-.gallery-item .thumbnail {
-    position: relative;
-    top: -5px;
-    left: -5px;
-}
+
 .gallery-item .thumbnail:hover {
     cursor: pointer;
-    position: relative;
-    top: 0px;
-    left: 0px;
+    scale: 90%;
 }
 
 .caption {
-    align-self: flex-end;
-    width: 100%;
+    /* transform: rotate(-90deg);  */
+    transform-origin: bottom;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
 }
 .caption-title {
-    padding: 10px 5px 5px 5px;
-    font-size: 1rem;
+    font-size: 2.5rem;
+   
+    /* width: 100%;
+    text-align: left; */
+    
 }
 
 .frame {
@@ -217,8 +220,13 @@ PROJECTS / GALLERY
     display: none;
 }
 
+.frame-img img {
+    width: 100%;
+}
+
 .frame .project {
     width: 75%;
+    min-height: 70%;
     margin: auto;
     display: flex;
     background-color: rgb(65, 65, 65);
@@ -241,16 +249,20 @@ PROJECTS / GALLERY
 
 .prev {
     position: absolute;
+    bottom: 50%;
     left: 5px;
-    bottom: 5px;
     padding: 5px;
+    font-size: 30px;
+    transform: translateY(50%);
 }
 
 .next {
     position: absolute;
+    bottom: 50%;
     right: 5px;
-    bottom: 5px;
     padding: 5px;
+    font-size: 30px;
+    transform: translateY(50%);
 }
 
 .frame .box {
@@ -286,14 +298,14 @@ ABOUT / CONTACT
 MAKE IT FIT PHONES
 **/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     section {
         width: 95%;
     }
 
     h1 {
         letter-spacing: 1ch;
-        font-size: 8.5rem;
+        font-size: 7rem;
     }
     
     h2 {
@@ -307,5 +319,9 @@ MAKE IT FIT PHONES
         font-size: 2rem;
         line-height: 2rem;
         letter-spacing: 0.2rem;
+    }
+
+    .row div {
+        width: 90vw
     }
 }

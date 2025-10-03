@@ -1,12 +1,11 @@
 let header = document.getElementsByClassName('header')[0];
 let space = document.getElementsByClassName('space')[0];
-let h = screen.height - header.offsetHeight - 100 + 'px';
-console.log(h)
-space.style.height = h;
+let h = screen.height - header.offsetHeight - 150;
+space.style.height = h + 'px';
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    if (document.body.scrollTop > h || document.documentElement.scrollTop > h) {
         header.classList.add('small-header')
     } else {
         header.classList.remove('small-header')
@@ -30,66 +29,54 @@ let projectData = {
         ],
         "desc": "A chrome extension that helps you schedule your time. Features a todo list, a timer, and numbers."
     },
-    "blockyJump": {
+    "leetMon": {
         "imgs": [
-            "assets/blockyJump1.JPG",
-            "assets/blockyJump2.png",
-            "assets/blockyJump3.JPG",
-            "assets/blockyJump4.JPG",
+            "assets/leetmon1.gif",
+            "assets/leetmon2.gif",
+            "assets/leetmon3.png",
+            "assets/leetmon4.png",
         ],
-        "link": "http://github.com/emilyclam/blockyJump",
-        "title": "Blocky Jump",
-        "langs": ["python"],
-        "desc": "Kind of like Doodle Jump. You are the blue square, and you can shoot the red enemy sqaures."
+        "link": "https://github.com/emilyclam/leetmon",
+        "title": "LeetMon",
+        "langs": [
+            "HTML",
+            "TypeScript",
+        ],
+        "desc": "A chrome extension where you catch pokemon when you do LeetCode."
     },
-    "gradientGame": {
+    "pogoBot": {
         "imgs": [
-            "assets/gradientGame1.png",
-            "assets/gradientGame2.png",
-            "assets/gradientGame3.png",
-            "assets/gradientGame4.png",
+            "assets/bot-example.png"
         ],
-        "link": "http://github.com/emilyclam/Gradient-Game",
-        "title": "Gradient Game",
-        "langs": ["python"],
-        "desc": "Fun game where you unscramble the tiles."
+        "link": "https://github.com/emilyclam/PogoBot",
+        "title": "PoGo Bot",
+        "langs": [
+            "python",
+            "BeautifulSoup",
+            "RegEx"
+        ],
+        "desc": "A discord bot that gives updates about the current and upcoming events in the Pokemon Go app."
     },
-    "gratitudeTracker": {
+    "recipeBook": {
         "imgs": [
-            "assets/gratitudeTracker1.JPG",
-            "assets/gratitudeTracker2.JPG",
-            "assets/gratitudeTracker3.JPG",
-            "assets/gratitudeTracker4.JPG",
+            "assets/recipebook1.png",
+            "assets/recipebook2.png",
+            "assets/recipebook3.png",
+            "assets/recipebook4.png",
         ],
-        "link": "http://github.com/emilyclam/gratitudeTracker",
-        "title": "Gratitude Tracker",
-        "langs": ["python"],
-        "desc": "A lil gratitude tracker. You can look back on what you said on previous days. Stores data."
+        "link": "https://github.com/emilyclam/recipe_book",
+        "title": "Recipe Book",
+        "langs": [
+            "React",
+            "Django",
+            "Postgres"
+        ],
+        "desc": "A full-stack web application where users can search, view, and save recipes."
     },
-    "minesweeper": {
-        "imgs": [
-            "assets/minesweeper1.png",
-            "assets/minesweeper2.png",
-        ],
-        "link": "http://github.com/emilyclam/minesweeper",
-        "title": "Minsweeper",
-        "langs": ["python"],
-        "desc": "Minesweeper. A classic!"
-    },
-    "filler": {
-        "imgs": [
-            "assets/filler1.png",
-            "assets/filler2.png",
-        ],
-        "link": "http://github.com/emilyclam/FillerGame",
-        "title": "Filler Game",
-        "langs": ["python"],
-        "desc": "Similar to the game Filler on game pigeon. Also very aesthetically pleasing."
-    }
 }
 
 function openFrame(projectKey) {
-    let fImg = document.querySelector(".frame-img .thumbnail");
+    let fImg = document.querySelector(".frame-img img");
     let link = projectData[projectKey]["link"];
     let fTitle = document.getElementsByClassName("proj-title")[0];
     let fLangs = document.getElementsByClassName("languages")[0];
@@ -113,14 +100,13 @@ function closeFrame() {
 }
 
 function nextImg(direction) {
-    let fImg = document.querySelector(".frame-img .thumbnail");
+    let fImg = document.querySelector(".frame-img img");
     let currImgNum = fImg.src[fImg.src.length-5] - 1;
     let imgsLength = projectData[currentProjKey]["imgs"].length;
     currImgNum = (currImgNum += direction) % imgsLength;
     if (currImgNum < 0) {
         currImgNum = imgsLength-1;
     }
-    console.log(currImgNum)
     fImg.src = projectData[currentProjKey]["imgs"][currImgNum];
 }
 
@@ -137,7 +123,6 @@ for (let i = 0; i < galleryItems.length; i++) {
 window.addEventListener('mousedown', function(e){   
     if (frame.style.display == "flex") {
         if (!project.contains(e.target)){
-          console.log("clicked outside of frame; close");
           closeFrame();
         }
     }
