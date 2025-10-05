@@ -79,7 +79,7 @@ HOME
 .header {
     position: sticky;
     top: 0;
-    padding: 0 40px;
+    padding-left: 40px;
     background-color: inherit;
     transition: 0.3s all ease-in-out;
     margin-bottom: 50px;
@@ -300,12 +300,13 @@ MAKE IT FIT PHONES
 
 @media only screen and (max-width: 650px) {
     section {
-        width: 95%;
+        width: 90%;
+        padding-top: 20px;
     }
 
     h1 {
         letter-spacing: 1ch;
-        font-size: 4rem;
+        font-size: 3rem;
     }
     
     h2 {
@@ -332,7 +333,6 @@ MAKE IT FIT PHONES
     .header {
         display: flex;
         flex-direction: column;
-        width: 100vw;
         align-items: flex-start;
     }
 
@@ -342,6 +342,7 @@ MAKE IT FIT PHONES
 
     .gallery-item {
         padding: 5px;
+        margin-bottom: 20px;
     }
 
     .thumbnail {
