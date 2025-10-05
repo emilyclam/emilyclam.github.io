@@ -109,63 +109,6 @@ li {
 
 
 /**
-PROJECTS
-**/
-.project {
-    margin-bottom: 60px;
-    border: dashed 1px gray;
-    padding: 10px;
-    text-align: left;
-}
-.thumbnail {
-    width: 90%;
-}
-.proj-title {
-    margin-top: 20px;
-}
-
-/*goto-github isn't applied to anything?*/
-.goto-github {
-    font-size: 15px;
-    font-weight: normal;
-    position: relative;
-    left: -20px;   
-}
-.box {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    column-gap: 5px;
-}
-.languages {
-    grid-column-start: 1;
-    border: 1px solid gray;
-    padding: 10px;
-}
-.description {
-    grid-column-start: 2;
-    border: 1px solid gray;
-    padding: 10px;
-}
-
-.open-proj-gallery {
-    background-color: cadetblue;
-    border: solid 1px cadetblue;
-    border-radius: 0;
-    color: #d8d8d8;
-    text-transform: uppercase;
-    margin: 30px;
-    padding: 15px 25px;
-    font-size: 0.8rem;
-    letter-spacing: 1.5px;
-}
-
-.open-proj-gallery:hover {
-    background-color: inherit;
-    color: cadetblue;
-}
-
-
-/**
 PROJECTS / GALLERY
 **/
 
@@ -175,6 +118,7 @@ PROJECTS / GALLERY
     flex-flow: row wrap;
     justify-content: center;
 }
+
 .gallery-item {
     max-width: 1000px;
     margin-bottom: 70px;
@@ -185,11 +129,11 @@ PROJECTS / GALLERY
     border: gray dashed 1px;
     padding: 15px;
     cursor: pointer;
-    transition: 2s flex ease;
+    /* transition: 2s flex ease; */
 }
-.open {
-    position: relative;
-    top: 0;
+
+.thumbnail {
+    width: 90%;
 }
 
 .gallery-item:hover > .caption-title {
@@ -200,10 +144,13 @@ PROJECTS / GALLERY
     scale: 90%;
 }
 
-.caption {
-    position: relative;
-    padding: 4rem; /* space for breathing room */
+.gallery-item.active .caption-title {
+  /* transform: rotate(-90deg); */
+  margin-top: 1rem; /* spacing under image */
+  /* writing-mode: horizontal-tb; */
+  transform: rotate(-90deg) translateY(-100%) translateX(-300%);
 }
+
 .caption-title {
     font-size: 2.5rem;
     display: inline-block;
@@ -214,18 +161,10 @@ PROJECTS / GALLERY
     
 }
 
-.gallery-item.active {
-    /* flex-direction: column;  */
-    
-}
 
-.gallery-item.active .caption-title {
-  /* transform: rotate(-90deg); */
-  margin-top: 1rem; /* spacing under image */
-  /* writing-mode: horizontal-tb; */
-  transform: rotate(-90deg) translateY(-100%) translateX(-300%);
-}
-
+/**
+FRAME / ZOOM-IN
+**/
 .frame {
 	background-color: rgba(0, 0, 0, .5);
 	width: 100vw;
@@ -238,17 +177,12 @@ PROJECTS / GALLERY
     display: none;
 }
 
-.frame-img img {
-    width: 100%;
-}
-
 .frame .project {
-    width: 75%;
-    min-height: 70%;
+    width: 80%;
     margin: auto;
     display: flex;
     background-color: rgb(65, 65, 65);
-    padding: 15px;
+    padding: 40px 30px;
 }
 
 .exit {
@@ -263,6 +197,11 @@ PROJECTS / GALLERY
     position: relative;
     top: 0;
     margin: auto;
+    width: 65%;
+}
+
+.frame-img img {
+    width: 100%;
 }
 
 .prev, .next {
@@ -305,20 +244,35 @@ PROJECTS / GALLERY
 }
 
 
-.frame .box {
+.info {
     display: flex;
     flex-direction: column;
     padding-left: 10px;
     margin: auto;
     row-gap: 10px;
-    width: 40%;
-    min-width: 150px;
+    width: 30%;
+    max-width: 400px;
 }
 
-.frame .languages {
-    display: flex;
-    margin-top: 10px;
+.proj-title {
+    margin-top: 20px;
 }
+
+.languages {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+.description {
+    grid-column-start: 2;
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+
 
 /**
 ABOUT / CONTACT
@@ -345,23 +299,75 @@ MAKE IT FIT PHONES
 
     h1 {
         letter-spacing: 1ch;
-        font-size: 7rem;
+        font-size: 4rem;
     }
     
     h2 {
         letter-spacing: 0.3ch;
-        font-size: 3.5rem;
+        font-size: 2rem;
         margin-bottom: 30px;
         padding: 10px 30px;
     }
-    
-    p {
-        font-size: 2rem;
-        line-height: 2rem;
-        letter-spacing: 0.2rem;
+
+    h3, .caption-title {
+        font-size: 1.5rem;
     }
 
-    .row div {
-        width: 90vw
+    h4 {
+        font-size: 1rem;
+    }
+    
+    p, li {
+        font-size: 1rem;
+        line-height: 1rem;
+        letter-spacing: 0.1rem;
+    }
+    
+    .header {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        align-items: flex-start;
+    }
+
+    .title {
+        width: auto;
+    }
+
+    .gallery-item {
+        padding: 5px;
+    }
+
+    .thumbnail {
+        width: 100%
+    }
+
+    .caption-title {
+        writing-mode: horizontal-tb;
+        padding-top :5px;
+    }
+
+    .frame .project {
+        flex-wrap: wrap;
+        padding: 20px 15px;
+        width: 90%;
+    }
+
+    .project .frame-img {
+        width: 100%;
+    }
+
+    .project .info {
+        width: 100%;
+        margin-left: 0;
+        max-width: fit-content;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    #contact {
+        padding-top: 40px;
     }
 }
