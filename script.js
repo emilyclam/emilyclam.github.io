@@ -90,14 +90,16 @@ function openFrame(projectKey) {
     let fImg = document.querySelector(".frame-img img");
     let link = projectData[projectKey]["link"];
     let fTitle = document.getElementsByClassName("proj-title")[0];
+    let fLink = document.querySelector(".proj-header a");
     let fLangs = document.getElementsByClassName("languages")[0];
     let fDesc = document.getElementsByClassName("description")[0];
     const numImgsInProject = projectData[projectKey]["imgs"].length;
 
     fImg.src = projectData[projectKey]["imgs"][0];
     
-    fTitle.innerHTML = projectData[projectKey]["title"] + ` <a href='${link}'  target='_blank' rel='noopener noreferrer'>🞂🞂</a>`;
-    fLangs.innerHTML = "";
+    fTitle.textContent = projectData[projectKey]["title"];
+    fLink.href = link;
+    fLangs.textContent = "";
     projectData[projectKey]["langs"].forEach(lang => {
         fLangs.insertAdjacentHTML('beforeend', `<li>${lang}</li>`)
     });
@@ -156,4 +158,3 @@ window.addEventListener('mousedown', function(e){
         }
     }
 });
-
