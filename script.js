@@ -12,9 +12,11 @@ function scrollFunction() {
     }
 }
 
-let frame = document.getElementsByClassName('frame')[0];
-let project = document.getElementsByClassName('project')[0];
-let currentProjKey = ""
+let MAX_PROJECT_PICS = 5;
+const frame = document.getElementsByClassName('frame')[0];
+const project = document.getElementsByClassName('project')[0];
+let currentProjKey = "";
+let currentImg = 0;
 let projectData = {
     "scheduleMaker": {
         "imgs": [
@@ -75,12 +77,22 @@ let projectData = {
     },
 }
 
+const imgIndicator = document.getElementById("img-indicators");
+let indicators = [];
+for (let i = 0; i < MAX_PROJECT_PICS; i++) {
+    const indicator = document.createElement("div");
+    indicator.className = 'indicator';
+    imgIndicator.appendChild(indicator);
+    indicators.push(indicator);
+}
+
 function openFrame(projectKey) {
     let fImg = document.querySelector(".frame-img img");
     let link = projectData[projectKey]["link"];
     let fTitle = document.getElementsByClassName("proj-title")[0];
     let fLangs = document.getElementsByClassName("languages")[0];
     let fDesc = document.getElementsByClassName("description")[0];
+    const numImgsInProject = projectData[projectKey]["imgs"].length;
 
     fImg.src = projectData[projectKey]["imgs"][0];
     
@@ -93,22 +105,39 @@ function openFrame(projectKey) {
 
     frame.style.display = "flex";
     currentProjKey = projectKey;
+    currentImg = 0;
+    for (let i = 0; i < MAX_PROJECT_PICS; i++) {
+        const indicator = indicators[i];
+        if (i == 0) {
+            indicator.classList.add('active');
+        }
+        if (i < numImgsInProject) {
+            indicator.style.display = 'block';
+        } else {
+            indicator.style.display = 'none';
+        }
+    }
 }
 
 function closeFrame() {
     frame.style.display = "none";
+    for (let i = 0; i < MAX_PROJECT_PICS; i++) {
+        indicators[i].classList = 'indicator';
+    }
 }
 
 function nextImg(direction) {
-    let fImg = document.querySelector(".frame-img img");
-    let currImgNum = fImg.src[fImg.src.length-5] - 1;
-    let imgsLength = projectData[currentProjKey]["imgs"].length;
-    currImgNum = (currImgNum += direction) % imgsLength;
-    if (currImgNum < 0) {
-        currImgNum = imgsLength-1;
+    const fImg = document.querySelector(".frame-img img");
+    const numImgsInProject = projectData[currentProjKey]["imgs"].length;
+    indicators[currentImg].classList.remove('active');
+    currentImg = (currentImg += direction) % numImgsInProject;
+    if (currentImg < 0) {
+        currentImg = numImgsInProject-1;
     }
-    fImg.src = projectData[currentProjKey]["imgs"][currImgNum];
+    fImg.src = projectData[currentProjKey]["imgs"][currentImg];
+    indicators[currentImg].classList.add('active');
 }
+
 
 let galleryItems = document.getElementsByClassName('gallery-item');
 for (let i = 0; i < galleryItems.length; i++) {
@@ -127,12 +156,4 @@ window.addEventListener('mousedown', function(e){
         }
     }
 });
-/*
-function checkCloseFrame() {
-    if (frame.style.display == "flex") {
-        if (!project.contains(mouse)){
-          console.log("clicked outside of frame; close");
-          closeFrame();
-        }
-    }
-}*/
+

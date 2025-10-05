@@ -181,31 +181,49 @@ PROJECTS / GALLERY
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     border: gray dashed 1px;
     padding: 15px;
+    cursor: pointer;
+    transition: 2s flex ease;
 }
 .open {
     position: relative;
     top: 0;
 }
 
+.gallery-item:hover > .caption-title {
+    color:cadetblue;
+}
+
 .gallery-item .thumbnail:hover {
-    cursor: pointer;
     scale: 90%;
 }
 
 .caption {
-    /* transform: rotate(-90deg);  */
-    transform-origin: bottom;
-    writing-mode: vertical-lr;
-    text-orientation: sideways;
+    position: relative;
+    padding: 4rem; /* space for breathing room */
 }
 .caption-title {
     font-size: 2.5rem;
-   
-    /* width: 100%;
-    text-align: left; */
+    display: inline-block;
+    /* transform: rotate(-90deg); */
+    transform-origin: bottom;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
     
+}
+
+.gallery-item.active {
+    /* flex-direction: column;  */
+    
+}
+
+.gallery-item.active .caption-title {
+  /* transform: rotate(-90deg); */
+  margin-top: 1rem; /* spacing under image */
+  /* writing-mode: horizontal-tb; */
+  transform: rotate(-90deg) translateY(-100%) translateX(-300%);
 }
 
 .frame {
@@ -247,23 +265,45 @@ PROJECTS / GALLERY
     margin: auto;
 }
 
+.prev, .next {
+    padding: 5px;
+    font-size: 30px;
+    transform: translateY(50%);
+    user-select: none;
+}
+
 .prev {
     position: absolute;
     bottom: 50%;
     left: 5px;
-    padding: 5px;
-    font-size: 30px;
-    transform: translateY(50%);
 }
 
 .next {
     position: absolute;
     bottom: 50%;
     right: 5px;
-    padding: 5px;
-    font-size: 30px;
-    transform: translateY(50%);
 }
+
+#img-indicators {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    gap: 10px;
+}
+
+.indicator {
+    border: solid 1px rgb(65, 65, 65);
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+}
+
+.indicator.active {
+    border: solid 1px cadetblue;
+    background-color: cadetblue;
+}
+
 
 .frame .box {
     display: flex;
